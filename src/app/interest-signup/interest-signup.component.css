@@ -1,0 +1,53 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.brand {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    /* left: 50%; */
+  }
+  
+  canvas {
+    position: absolute;
+    background-color: #ffd700;
+  }
+  
+  div.signup-form {
+    position: absolute;
+    left: calc(50vw - 200px);
+    bottom: 15vh;
+    display: flex;
+    flex-direction: column;
+    img {
+      z-index: 2;
+      width: 400px;
+      aspect-ratio: 2 / 1;
+      /* bottom: 20vh; */
+    }
+    svg {
+      border: 1px solid white;
+    }
+    > div.form-controls {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .5rem;
+      background-color: grey;
+      padding: .5rem;
+      > input.not_valid {
+        outline: 2px solid rgb(192, 63, 89);
+      }
+      > button.action-button {
+        background-color: seagreen;
+        color: white;
+        grid-column: 1 / span 2;
+        cursor: pointer;
+      }
+      > button.action-button:hover {
+        filter: brightness(1.2);
+      }
+    }
+  }
