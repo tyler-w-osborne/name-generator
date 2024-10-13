@@ -15,7 +15,6 @@ export class InterestSignupComponent implements OnInit, AfterViewInit {
       this.Set_Signed_Up(true);
       return;
     }
-    localStorage.setItem('signed_up', JSON.stringify(false));
     this.Set_Signed_Up(false);
   }
 
@@ -140,9 +139,7 @@ export class InterestSignupComponent implements OnInit, AfterViewInit {
   }
 
   Sign_Up_Successful() {
-    localStorage.setItem('signed_up', JSON.stringify(true))
     this.Set_Signed_Up(true);
-    this.ctx.fillStyle = this.gradient;
     let audio = new Audio('vault_closing.wav');
     console.log(audio)
     audio.play();
@@ -161,6 +158,7 @@ export class InterestSignupComponent implements OnInit, AfterViewInit {
   Set_Signed_Up(signed_up: boolean) {
     IS_Signed_Up = signed_up;
     this.IS_Signed_Up = signed_up;
+    localStorage.setItem('signed_up', JSON.stringify(signed_up))
     if (!this.ctx) {
       return;
     }
