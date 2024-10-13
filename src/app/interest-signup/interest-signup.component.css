@@ -7,7 +7,8 @@
   div.brand {
     position: absolute;
     color: white;
-    font-size: 24px;
+    font-size: 34px;
+    top: 2rem;
     /* left: 50%; */
   }
   
