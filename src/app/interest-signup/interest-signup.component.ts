@@ -128,13 +128,13 @@ export class InterestSignupComponent implements OnInit, AfterViewInit {
     console.log(this.Controls.Last_Name)
     console.log(this.Controls.Email)
     console.log(this.Controls.Company_Name)
-    if (!this.Controls.First_Name.IS_Valid || !this.Controls.Last_Name.IS_Valid || !this.Controls.Email.IS_Valid || !this.Controls.Company_Name.IS_Valid) {
-      return;
-    }
     this.Controls.Validate('First');
     this.Controls.Validate('Last'); 
     this.Controls.Validate('Email'); 
     this.Controls.Validate('Company_Name');
+    if (!this.Controls.First_Name.IS_Valid || !this.Controls.Last_Name.IS_Valid || !this.Controls.Email.IS_Valid || !this.Controls.Company_Name.IS_Valid) {
+      return;
+    }
     this.Sign_Up_Successful()
   }
 
