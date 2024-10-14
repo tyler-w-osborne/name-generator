@@ -1,12 +1,19 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { FormControl, FormControlName, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-interest-signup',
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './interest-signup.component.html',
-  styleUrl: './interest-signup.component.css'
+  styleUrl: './interest-signup.component.css',
 })
 export class InterestSignupComponent implements OnInit, AfterViewInit {
   constructor(private renderer: Renderer2) {
@@ -25,9 +32,7 @@ export class InterestSignupComponent implements OnInit, AfterViewInit {
   ctx!: CanvasRenderingContext2D;
   effect: Effect;
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.Canvas.Initialize();
@@ -63,11 +68,12 @@ export class InterestSignupComponent implements OnInit, AfterViewInit {
         this.canvas_ref.nativeElement.height
       );
       this.gradient.addColorStop(0, '#251719');
-      this.gradient.addColorStop(.25, '#2E294E');
-      this.gradient.addColorStop(.5, '#1B998B');
-      this.gradient.addColorStop(.75, '#D7263D');
+      this.gradient.addColorStop(0.25, '#2E294E');
+      this.gradient.addColorStop(0.5, '#1B998B');
+      this.gradient.addColorStop(0.75, '#D7263D');
       this.gradient.addColorStop(1, '#FFFFFF');
       this.ctx.fillStyle = IS_Signed_Up ? this.gradient : '#D7263D';
+      this.ctx.strokeStyle = IS_Signed_Up ? this.gradient : '#D7263D';
       this.effect = new Effect(this.canvas_ref.nativeElement);
       console.log(this.effect);
       this.Canvas.Animate();
@@ -90,58 +96,76 @@ export class InterestSignupComponent implements OnInit, AfterViewInit {
   Controls = {
     First_Name: {
       Value: <string>null,
-      IS_Valid: <boolean>true
+      IS_Valid: <boolean>true,
     },
     Last_Name: {
       Value: <string>null,
-      IS_Valid: <boolean>true
+      IS_Valid: <boolean>true,
     },
     Email: {
       Value: <string>null,
-      IS_Valid: <boolean>true
+      IS_Valid: <boolean>true,
     },
     Company_Name: {
       Value: <string>null,
-      IS_Valid: <boolean>true
+      IS_Valid: <boolean>true,
     },
     Validate: (control: 'First' | 'Last' | 'Email' | 'Company_Name') => {
       switch (control) {
-        case 'First': this.Controls.First_Name.IS_Valid = !!this.Controls.First_Name.Value && this.Controls.First_Name.Value.length >= 2;
+        case 'First':
+          this.Controls.First_Name.IS_Valid =
+            !!this.Controls.First_Name.Value &&
+            this.Controls.First_Name.Value.length >= 2;
           break;
-        case 'Last': this.Controls.Last_Name.IS_Valid = !!this.Controls.Last_Name.Value && this.Controls.Last_Name.Value.length >= 2;
+        case 'Last':
+          this.Controls.Last_Name.IS_Valid =
+            !!this.Controls.Last_Name.Value &&
+            this.Controls.Last_Name.Value.length >= 2;
           break;
-        case 'Email': {
-          const email_regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-          this.Controls.Email.IS_Valid = !!this.Controls.Email.Value && this.Controls.Email.Value.length >= 2 && !!this.Controls.Email.Value.match(email_regex);
-        }
+        case 'Email':
+          {
+            const email_regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            this.Controls.Email.IS_Valid =
+              !!this.Controls.Email.Value &&
+              this.Controls.Email.Value.length >= 2 &&
+              !!this.Controls.Email.Value.match(email_regex);
+          }
           break;
-        case 'Company_Name': this.Controls.Company_Name.IS_Valid = !!this.Controls.Company_Name.Value && this.Controls.Company_Name.Value.length >= 3;
+        case 'Company_Name':
+          this.Controls.Company_Name.IS_Valid =
+            !!this.Controls.Company_Name.Value &&
+            this.Controls.Company_Name.Value.length >= 3;
           break;
       }
-    }
-  }
+    },
+  };
 
   IS_Signed_Up: boolean;
 
   Submit() {
-    console.log(this.Controls.First_Name)
-    console.log(this.Controls.Last_Name)
-    console.log(this.Controls.Email)
-    console.log(this.Controls.Company_Name)
+    console.log(this.Controls.First_Name);
+    console.log(this.Controls.Last_Name);
+    console.log(this.Controls.Email);
+    console.log(this.Controls.Company_Name);
     this.Controls.Validate('First');
-    this.Controls.Validate('Last'); 
-    this.Controls.Validate('Email'); 
+    this.Controls.Validate('Last');
+    this.Controls.Validate('Email');
     this.Controls.Validate('Company_Name');
-    if (!this.Controls.First_Name.IS_Valid || !this.Controls.Last_Name.IS_Valid || !this.Controls.Email.IS_Valid || !this.Controls.Company_Name.IS_Valid) {
+    if (
+      !this.Controls.First_Name.IS_Valid ||
+      !this.Controls.Last_Name.IS_Valid ||
+      !this.Controls.Email.IS_Valid ||
+      !this.Controls.Company_Name.IS_Valid
+    ) {
       return;
     }
-    this.Sign_Up_Successful()
+    this.Sign_Up_Successful();
   }
 
   Sign_Up_Successful() {
     this.Set_Signed_Up(true);
     let audio = new Audio('vault_closing.wav');
-    console.log(audio)
+    console.log(audio);
     audio.play();
     setTimeout(() => {
       audio.src = 'vault_closed.wav';
@@ -152,13 +176,13 @@ export class InterestSignupComponent implements OnInit, AfterViewInit {
         audio.pause();
         audio.play();
       }, 500);
-    }, 1000)
+    }, 1000);
   }
 
   Set_Signed_Up(signed_up: boolean) {
     IS_Signed_Up = signed_up;
     this.IS_Signed_Up = signed_up;
-    localStorage.setItem('signed_up', JSON.stringify(signed_up))
+    localStorage.setItem('signed_up', JSON.stringify(signed_up));
     if (!this.ctx) {
       return;
     }
@@ -191,7 +215,7 @@ class Effect {
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.particles = [];
-    this.particle_count = 50;
+    this.particle_count = 40;
     this.words = [];
     this.word_count = 50;
     this.create_particles();
@@ -206,8 +230,25 @@ class Effect {
   }
 
   handle_particles(ctx: CanvasRenderingContext2D) {
-    this.particles.forEach((particle) => {
+    this.particles.forEach((particle, index) => {
       particle.draw(ctx);
+      for (let i = 0; i < this.particles.length; i++) {
+        if (index === i) {
+          continue;
+        }
+        if (
+          Math.hypot(
+            Math.abs(particle.x - this.particles[i].x),
+            Math.abs(particle.y - this.particles[i].y)
+          ) <
+          particle.radius * 10
+        ) {
+          ctx.beginPath();
+          ctx.moveTo(particle.x, particle.y);
+          ctx.lineTo(this.particles[i].x, this.particles[i].y);
+          ctx.stroke();
+        }
+      }
       particle.update();
     });
   }
@@ -242,8 +283,8 @@ class Particle {
       this.radius + Math.random() * (this.effect.width - this.radius * 2);
     this.y =
       this.radius + Math.random() * (this.effect.height - this.radius * 2);
-    this.vx = Math.random() * 10;
-    this.vy = Math.random() * 10;
+    this.vx = Math.random() * 2;
+    this.vy = Math.random() * 2;
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -283,7 +324,7 @@ class Word {
     this.y = Math.random() * effect.height;
     this.vx = Math.random() * 2;
     this.vy = Math.random() * 2;
-    this.size = Math.random() * 10 + 16
+    this.size = Math.random() * 10 + 16;
     this.word = this.choices[Math.floor(Math.random() * this.choices.length)];
   }
 
@@ -327,11 +368,10 @@ class Word {
     ['Reputation Damage', 'Reputation Safety'],
     ['Loss of Trust', 'Increased Trust'],
     ['Exposure of Trade Secrets', 'Security of Trade Secrets'],
-    ['Non-Compliance', 'Compliance']
+    ['Non-Compliance', 'Compliance'],
   ];
 }
 
 type word_choice = [string, string];
-
 
 let IS_Signed_Up: boolean;
