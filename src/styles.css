@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-:host {
+:root {
   --theme-darkest: #251719;
   --theme-dark: #2E294E;
   --theme-medium: #1B998B;
   --theme-light: #D7263D;
-  --theme-lighest: #ffffff;
+  --theme-lightest: #ffffff;
 }
 
 body,
@@ -30,4 +30,3 @@ button {
   outline: none;
   border: 0;
 }
-
