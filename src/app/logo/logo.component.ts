@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './logo.component.css'
 })
 export class LogoComponent {
+  // Polygon = {
+  //   Points_Set_1: <string>`100,10 150,190 50,190`,
+  // }
+  // Rivet_Bolts = [];
+
 
 }
