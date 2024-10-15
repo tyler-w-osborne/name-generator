@@ -278,13 +278,13 @@ class Effect {
 class Particle {
   constructor(effect: Effect) {
     this.effect = effect;
-    this.radius = 15;
+    this.radius = 10;
     this.x =
       this.radius + Math.random() * (this.effect.width - this.radius * 2);
     this.y =
       this.radius + Math.random() * (this.effect.height - this.radius * 2);
-    this.vx = Math.random() * 2;
-    this.vy = Math.random() * 2;
+    this.vx = Math.random() * 1.5;
+    this.vy = Math.random() * 1.5;
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -322,8 +322,8 @@ class Word {
     this.effect = effect;
     this.x = Math.random() * effect.width;
     this.y = Math.random() * effect.height;
-    this.vx = Math.random() * 2;
-    this.vy = Math.random() * 2;
+    this.vx = Math.random() * 1.25;
+    this.vy = Math.random() * 1.25;
     this.size = Math.random() * 10 + 16;
     this.word = this.choices[Math.floor(Math.random() * this.choices.length)];
   }

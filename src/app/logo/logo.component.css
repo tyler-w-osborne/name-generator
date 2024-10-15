@@ -1,13 +1,15 @@
 svg {
-    outline: 1px solid white;
-    > polygon {
-        fill: lime;
-        stroke: brown;
-        stroke-width:3
-    }
-    > circle {
-        /* fill: lime;
+  outline: 1px solid white;
+  width: 100%;
+  height: 100%;
+  > polygon {
+    fill: lime;
+    stroke: brown;
+    stroke-width: 3;
+  }
+  > circle {
+    /* fill: lime;
         stroke: brown;
         stroke-width:3 */
-    }
+  }
 }

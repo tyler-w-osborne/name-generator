@@ -1,0 +1,25 @@
+<svg
+    viewbox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!-- <polygon points="100,10 150,190 50,190" /> -->
+    <!-- <circle r="45" cx="50" cy="50" fill="black" stroke="#1B998B" stroke-width="3" /> -->
+    <polygon points="10,10 90,10 90,90 10,90" />
+    <!-- <circle
+    r="25"
+    cx="50"
+    cy="50"
+    fill="black"
+    stroke="#1B998B"
+    stroke-width="3"
+  /> -->
+    <text x="45" y="55" fill="purple" font-size="34">V</text>
+    @for (rivet of rivets; track $index) {
+    <circle
+      class="rivet-bolt"
+      [attr.r]="rivet.radius"
+      [attr.cx]="rivet.x"
+      [attr.cy]="rivet.y"
+    ></circle>
+    }
+  </svg>

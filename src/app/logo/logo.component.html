@@ -1,8 +1,39 @@
-<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- <polygon points="100,10 150,190 50,190" /> -->
-    <!-- <circle r="45" cx="50" cy="50" fill="black" stroke="#1B998B" stroke-width="3" /> -->
+<div style="width: 500px; height: 500px; background-color: darkblue">
+  <!-- <svg
+    viewbox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid meet"
+    style="width: 100%; height: 100%"
+    width="100%"
+  >
     <polygon points="10,10 90,10 90,90 10,90" />
-    <circle r="25" cx="50" cy="50" fill="black" stroke="#1B998B" stroke-width="3" />
+
     <text x="45" y="55" fill="purple" font-size="34">V</text>
-    <circle class="rivet-bolt"></circle>
-</svg>
+    @for (rivet of rivets; track $index) {
+    <circle
+      class="rivet-bolt"
+      [attr.r]="rivet.radius"
+      [attr.cx]="rivet.x"
+      [attr.cy]="rivet.y"
+    ></circle>
+    }
+  </svg> -->
+
+  <svg
+    viewbox="0 0 100 100"
+    width="100"
+    height="100"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <polygon points="10,10 90,10 90,90 10,90" />
+    <text x="45" y="55" fill="purple" font-size="34">V</text>
+    @for (rivet of rivets; track $index) {
+    <circle
+      class="rivet-bolt"
+      [attr.r]="rivet.radius"
+      [attr.cx]="rivet.x"
+      [attr.cy]="rivet.y"
+    ></circle>
+    }
+  </svg>
+</div>
