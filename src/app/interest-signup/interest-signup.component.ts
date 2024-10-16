@@ -7,11 +7,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-interest-signup',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, LogoComponent, ReactiveFormsModule],
   templateUrl: './interest-signup.component.html',
   styleUrl: './interest-signup.component.css',
 })

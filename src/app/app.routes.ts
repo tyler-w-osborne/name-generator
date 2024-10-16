@@ -23,6 +23,11 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'about-us',
+    loadComponent: () =>
+      import('./about-us/about-us.component').then((c) => c.AboutUsComponent),
+  },
+  {
     path: 'logo',
     loadComponent: () =>
       import('./logo/logo.component').then((c) => c.LogoComponent),

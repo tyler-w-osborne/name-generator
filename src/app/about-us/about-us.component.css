@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.Info-1 {
+  width: 30vw;
+  background-color: var(--theme-darkest);
+  color: white;
+  padding: 1rem;
+}

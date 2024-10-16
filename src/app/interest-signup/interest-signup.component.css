@@ -5,10 +5,9 @@
   }
 
   div.brand {
-    position: absolute;
     color: white;
     font-size: 34px;
-    top: 2rem;
+    z-index: 2;
     /* left: 50%; */
   }
   
@@ -18,19 +17,20 @@
   }
   
   div.signup-form {
-    position: absolute;
-    left: calc(50vw - 200px);
-    bottom: 15vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 2;
+    > logo {
+      width: 20vw;
+    }
     img {
       z-index: 2;
       width: 400px;
       aspect-ratio: 2 / 1;
       /* bottom: 20vh; */
-    }
-    svg {
-      border: 1px solid white;
     }
     > div.form-controls {
       display: grid;

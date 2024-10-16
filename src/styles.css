@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 :root {
   --theme-darkest: #251719;
   --theme-dark: #2E294E;
@@ -12,6 +14,10 @@ html {
   margin: 0;
   padding: 0;
   overflow: hidden;
+} 
+
+* {
+  font-family: "Mulish";
 }
 
 input {

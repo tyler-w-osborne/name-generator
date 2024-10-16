@@ -2,6 +2,6 @@ https://www.flux-academy.com/blog/the-ultimate-guide-to-choosing-fonts
 https://fonts.google.com/specimen/Mulish?preview.text=Vaultech%20Solutions
 
 Mulish
-days one
-russo one
-roboto
+//days one
+//russo one
+roboto - wasn't chosen because roboto is seen everywhere. keep as fallback font

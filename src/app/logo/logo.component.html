@@ -1,14 +1,48 @@
-<div style="width: 250px; height: 250px;">
-  <!-- <svg
-    viewbox="0 0 100 100"
+<!-- <div
+  style="
+    width: 95vw;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    /* flex-direction: row; */
+    /* align-items: center; */
+    gap: 1rem;
+    margin: 1rem;
+  "
+>
+  <svg
+    viewBox="0 0 100 100"
+    width="100"
+    height="100"
     xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid meet"
-    style="width: 100%; height: 100%"
-    width="100%"
   >
-    <polygon points="10,10 90,10 90,90 10,90" />
-
-    <text x="45" y="55" fill="purple" font-size="34">V</text>
+    <path [attr.d]="path_1"></path>
+    <circle
+      class="border circle"
+      r="45"
+      cx="50"
+      cy="50"
+      fill="none"
+      stroke="purple"
+    ></circle>
+    @for (rivet of rivets; track $index) { }
+  </svg>
+  <svg
+    viewBox="0 0 100 100"
+    width="60"
+    height="60"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path [attr.d]="path_2"></path>
+    <path d="M30,30 H40 L50,40 L60,30 H70 V40 L50,60 L30,40 V30" style="fill: yellow;stroke: none;"></path>
+    <path class="grid" [attr.d]="grid"></path>
+    <circle
+      class="border circle"
+      r="50"
+      cx="50"
+      cy="50"
+      fill="none"
+      stroke="purple"
+    ></circle>
     @for (rivet of rivets; track $index) {
     <circle
       class="rivet-bolt"
@@ -17,55 +51,127 @@
       [attr.cy]="rivet.y"
     ></circle>
     }
-  </svg> -->
+  </svg>
+  <svg
+    viewBox="0 0 100 100"
+    width="50"
+    height="50"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path [attr.d]="path_3"></path>
+    @for (rivet of rivets_2; track $index) {
+    }
+  </svg>
 
   <svg
     viewBox="0 0 100 100"
-    width="100"
-    height="100"
+    width="50"
+    height="50"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path [attr.d]="path_1"></path>
-     <circle class="border circle" r="45" cx="50" cy="50" fill="none" stroke="purple"></circle>
-    @for (rivet of rivets; track $index) {
+    <path class="grid" [attr.d]="grid"></path>
+    <path [attr.d]="path_4"></path>
+    <path d="M" fill="purple" stroke="none"></path>
+    @for (rivet of rivets_4; track $index) {
     }
   </svg>
   <svg
-  viewBox="0 0 100 100"
-  width="60"
-  height="60"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path [attr.d]="path_2"></path>
-  <!-- <polygon points="10,10 90,10 90,90 10,90" /> -->
-  <!-- <text x="45" y="55" fill="purple" font-size="34">V</text> -->
-   <circle class="border circle" r="50" cx="50" cy="50" fill="none" stroke="purple"></circle>
-  @for (rivet of rivets; track $index) {
-  <circle
-    class="rivet-bolt"
-    [attr.r]="rivet.radius"
-    [attr.cx]="rivet.x"
-    [attr.cy]="rivet.y"
-  ></circle>
-  }
-</svg>
+    viewBox="0 0 120 120"
+    width="50"
+    height="50"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path class="grid" [attr.d]="wider_grid"></path>
+    <path [attr.d]="path_5"></path>
+    <path d="M10,10 H110 V110 H10 V10" stroke="white"></path>
+    <path
+      d="M20,40 H40 L60,60 L80,40 H100 L60,80 L20,40"
+      style="stroke: lime; fill: rgb(28, 8, 77)"
+    ></path>
+    @for (rivet of rivets_5; track $index) {
+    <circle
+      class="rivet-bolt"
+      [attr.r]="rivet.radius"
+      [attr.cx]="rivet.x"
+      [attr.cy]="rivet.y"
+    ></circle>
+    }
+  </svg>
+
+  <div class="combined">
+    <svg
+      viewBox="0 0 120 120"
+      width="50"
+      height="50"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle r="55" cx="60" cy="60"></circle>
+      <rect width="120" height="120" rx="4" ry="4" style="fill: none;stroke: white;"></rect>
+
+      <rect width="10" height="10" x="5" y="5" style="fill: none;stroke: white;"></rect>
+      <rect width="10" height="10" x="105" y="5" style="fill: none;stroke: white;"></rect>
+      <rect width="10" height="10" x="105" y="105" style="fill: none;stroke: white;"></rect>
+      <rect width="10" height="10" x="5" y="105" style="fill: none;stroke: white;"></rect>
+
+      <circle r="3" cx="10" cy="10" style="fill: white;stroke: none;"></circle>
+      <circle r="3" cx="110" cy="10" style="fill: white;stroke: none;"></circle>
+      <circle r="3" cx="110" cy="110" style="fill: white;stroke: none;"></circle>
+      <circle r="3" cx="10" cy="110" style="fill: white;stroke: none;"></circle>
+      
+
+
+      <path [attr.d]="path_5"></path>
+      <path
+        d="M20,40 H40 L60,60 L80,40 H100 L60,80 L20,40"
+        style="stroke: lime; fill: rgb(28, 8, 77)"
+      ></path>
+      @for (rivet of rivets_5; track $index) {
+      <circle
+        class="rivet-bolt"
+        [attr.r]="rivet.radius"
+        [attr.cx]="rivet.x"
+        [attr.cy]="rivet.y"
+      ></circle>
+      }
+    </svg>
+
+
+  </div>
+</div> -->
 <svg
-viewBox="0 0 100 100"
-width="50"
-height="50"
-xmlns="http://www.w3.org/2000/svg"
->
-<path [attr.d]="path_3"></path>
-<!-- <polygon points="10,10 90,10 90,90 10,90" /> -->
-<!-- <text x="45" y="55" fill="purple" font-size="34">V</text> -->
- <!-- <circle class="border circle" r="40" cx="50" cy="50" fill="none" stroke="purple"></circle> -->
-@for (rivet of rivets_2; track $index) {
-<!-- <circle
-  class="rivet-bolt"
-  [attr.r]="rivet.radius"
-  [attr.cx]="rivet.x"
-  [attr.cy]="rivet.y"
-></circle> -->
-}
-</svg>
-</div>
+      viewBox="0 0 120 120"
+      width="50"
+      height="50"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- <path class="grid" [attr.d]="wider_grid"></path> -->
+      <circle r="55" cx="60" cy="60"></circle>
+      <rect width="120" height="120" rx="4" ry="4" style="fill: none;stroke: white;"></rect>
+
+      <rect width="10" height="10" x="5" y="5" style="fill: none;stroke: white;"></rect>
+      <rect width="10" height="10" x="105" y="5" style="fill: none;stroke: white;"></rect>
+      <rect width="10" height="10" x="105" y="105" style="fill: none;stroke: white;"></rect>
+      <rect width="10" height="10" x="5" y="105" style="fill: none;stroke: white;"></rect>
+
+      <circle r="3" cx="10" cy="10" style="fill: white;stroke: none;"></circle>
+      <circle r="3" cx="110" cy="10" style="fill: white;stroke: none;"></circle>
+      <circle r="3" cx="110" cy="110" style="fill: white;stroke: none;"></circle>
+      <circle r="3" cx="10" cy="110" style="fill: white;stroke: none;"></circle>
+      
+
+
+      <path [attr.d]="path_5"></path>
+      <path
+        d="M20,40 H40 L60,60 L80,40 H100 L60,80 L20,40"
+        style="stroke: lime; fill: rgb(28, 8, 77)"
+      ></path>
+      <!-- <path [attr.d]="path_5_vault" style="stroke: brown;stroke-width: 2;"></path> -->
+      @for (rivet of rivets_5; track $index) {
+      <circle
+        class="rivet-bolt"
+        [attr.r]="rivet.radius"
+        [attr.cx]="rivet.x"
+        [attr.cy]="rivet.y"
+      ></circle>
+      }
+    </svg>
