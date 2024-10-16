@@ -7,7 +7,12 @@ svg {
     stroke: brown;
     stroke-width: 3;
   }
+  > path {
+    stroke: white;
+    fill: none;
+  }
   > circle {
+    stroke: white;
     /* fill: lime;
         stroke: brown;
         stroke-width:3 */
