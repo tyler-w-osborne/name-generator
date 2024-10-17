@@ -7,6 +7,8 @@
   --theme-medium: #1B998B;
   --theme-light: #D7263D;
   --theme-lightest: #ffffff;
+
+  --max-width-phone: 490px;
 }
 
 body,
@@ -18,6 +20,7 @@ html {
 
 * {
   font-family: "Mulish";
+  font-size: calc(15px + 0.390625vw);
 }
 
 input {

@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'interest',
+    path: 'contact-us',
     loadComponent: () =>
-      import('./interest-signup/interest-signup.component').then(
-        (c) => c.InterestSignupComponent
+      import('./contact-us/contact-us.component').then(
+        (c) => c.ContactUsComponent
       ),
   },
   {
@@ -32,6 +32,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./logo/logo.component').then((c) => c.LogoComponent),
   },
-  { path: '', redirectTo: '/interest', pathMatch: 'full' },
-  { path: '**', redirectTo: '/interest' },
+  { path: '', redirectTo: '/contact-us', pathMatch: 'full' },
+  { path: '**', redirectTo: '/contact-us' },
 ];

@@ -1,54 +1,77 @@
 :host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+canvas {
+  position: absolute;
+  background-color: #ffd700;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+div.container {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  >div.brand {
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
   }
 
-  div.brand {
-    color: white;
-    font-size: 34px;
-    z-index: 2;
-    /* left: 50%; */
+  >logo {
+    width: 40vw;
+    display: block;
+    margin-bottom: 1rem;
   }
-  
-  canvas {
-    position: absolute;
-    background-color: #ffd700;
-  }
-  
-  div.signup-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+
+  >div.form-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .5rem;
+    background-color: grey;
+    padding: .5rem;
     z-index: 2;
-    > logo {
-      width: 20vw;
+
+    >input.not_valid {
+      outline: 2px solid rgb(192, 63, 89);
     }
-    img {
-      z-index: 2;
-      width: 400px;
-      aspect-ratio: 2 / 1;
-      /* bottom: 20vh; */
+
+    >button.action-button {
+      background-color: seagreen;
+      color: white;
+      grid-column: 1 / span 2;
+      cursor: pointer;
     }
+
+    >button.action-button:hover {
+      filter: brightness(1.2);
+    }
+  }
+
+  @media screen and (max-width: 490px) {
     > div.form-controls {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .5rem;
-      background-color: grey;
-      padding: .5rem;
-      > input.not_valid {
-        outline: 2px solid rgb(192, 63, 89);
-      }
-      > button.action-button {
-        background-color: seagreen;
-        color: white;
-        grid-column: 1 / span 2;
-        cursor: pointer;
-      }
-      > button.action-button:hover {
-        filter: brightness(1.2);
+      display: flex;
+      flex-direction: column;
+  
+      >button.action-button {
+        grid-column: unset;
       }
     }
-  }
+}
+
+
+}

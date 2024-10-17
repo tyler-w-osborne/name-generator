@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   OnInit,
   Renderer2,
   ViewChild,
@@ -33,7 +34,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   ctx!: CanvasRenderingContext2D;
   effect: Effect;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
     this.Canvas.Initialize();
@@ -42,17 +43,17 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   Canvas = {
     Initialize: () => {
       this.ctx = this.canvas_ref.nativeElement.getContext('2d');
-      this.renderer.setStyle(
-        this.canvas_ref.nativeElement,
-        'width',
-        `${window.innerWidth}px`
-      );
+      // this.renderer.setStyle(
+      //   this.canvas_ref.nativeElement,
+      //   'width',
+      //   `${window.innerWidth}px`
+      // );
 
-      this.renderer.setStyle(
-        this.canvas_ref.nativeElement,
-        'height',
-        `${window.innerHeight}px`
-      );
+      // this.renderer.setStyle(
+      //   this.canvas_ref.nativeElement,
+      //   'height',
+      //   `${window.innerHeight}px`
+      // );
 
       this.renderer.setStyle(
         this.canvas_ref.nativeElement,
@@ -90,7 +91,25 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
       this.effect.handle_words(this.ctx);
       requestAnimationFrame(this.Canvas.Animate);
     },
+    // Start_Observer: () => {
+    //   this.resize_observer = new ResizeObserver(entries => {
+    //     entries.forEach(entry => {
+    //       console.log("width", entry.contentRect.width);
+    //       console.log("height", entry.contentRect.height);
+    //     });
+    //   });
+
+    //   this.resize_observer.observe(this.canvas_ref.nativeElement);
+    //   // observer.observe(this.canvas_ref.nativeElement)
+    // }
   };
+  @HostListener('resize')
+  resize_canvas() {
+    this.canvas_ref.nativeElement.width = window.innerWidth;
+    this.canvas_ref.nativeElement.height = window.innerHeight;
+  }
+
+  resize_observer: ResizeObserver = null;
 
   gradient: CanvasGradient;
 

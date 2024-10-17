@@ -1,0 +1,19 @@
+:host {
+    height: 100vh;
+    width: 100vw;
+}
+
+app-header {
+    --header-height: 32px;
+}
+
+@media screen and (max-width: var(--max-width-phone)) {
+    app-header {
+        --header-height: 64px
+    }
+}
+
+div.container {
+    height: calc(100vh - 32px);
+    overflow: hidden;
+}
