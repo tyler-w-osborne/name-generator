@@ -8,3 +8,9 @@
     background-color: var(--theme-dark);
     color: var(--theme-lightest);
 }
+
+div.brand {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}

@@ -9,11 +9,12 @@ import {
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoComponent } from '../logo/logo.component';
+import { PlaceholderImageComponent } from "../placeholder-image/placeholder-image.component";
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [FormsModule, LogoComponent, ReactiveFormsModule],
+  imports: [FormsModule, LogoComponent, ReactiveFormsModule, PlaceholderImageComponent],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css'
 })

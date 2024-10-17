@@ -1,5 +1,5 @@
 svg {
-  /* outline: 1px solid white; */
+  outline: 1px solid white;
   width: 100%;
   height: 100%;
   > path {
